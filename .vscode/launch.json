@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "stm32 Debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/Debug/stm32.elf",
+            "request": "launch", //注意必须使用launch，不能使用attach
+            "preLaunchTask": "Build", //防止忘了下载程序
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "./openocd/openocd.cfg"
+            ],
+            "device": "STM32F407IGT6",
+            "interface": "swd",
+            "svdFile": "./openocd/stm32f407.svd",
+            "runToEntryPoint": "main",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            }
+        }
+    ]
+}
